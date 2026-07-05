@@ -8,8 +8,11 @@ This is a pattern library, not a framework. Each skill is a self-contained folde
 
 ```
 skills/                        # one folder per skill, each with SKILL.md
-  herdr-claude-pr-lane/        # run PR-sized Claude Code work through Herdr
+  chief-of-staff-brainstorm/   # expand rough goals into ranked options
+  critical-thinking-review/    # challenge assumptions before committing
+  idea-to-implementation-plan/ # bridge selected ideas into first executable slice
   goal-contract/               # turn vague asks into bounded contracts
+  herdr-claude-pr-lane/        # run PR-sized Claude Code work through Herdr
   agent-verification-contracts/# verification loops per change type
   folder-agent-context/        # project-local CLAUDE.md + AGENTS.md
   agent-handoff/               # handoff artifacts for fresh sessions
@@ -66,11 +69,12 @@ Sync copies whole skill folders and overwrites files that changed. It does not d
 
 Short version — the full notes are in `docs/design-principles.md`:
 
-1. **Small skills, one job each.** A skill that tries to cover everything never fires at the right moment. Split by decision point, not by topic area.
-2. **Progressive disclosure.** The description is the trigger; the body is the payload. Keep descriptions honest about *when*, keep bodies short enough to read in one pass (target under ~160 lines).
-3. **State-check before action.** Skills should tell the agent to verify current state (git status, existing files, running processes) before mutating anything.
-4. **Verification is part of the work.** A change without a check is half a change. Every skill that produces output includes how to verify it.
-5. **Portable by default.** No harness-specific APIs in skill bodies unless the skill is explicitly about that harness. Person- or machine-specific notes go in a clearly marked optional section.
+1. **Capture the whole lifecycle.** Good agent workflows move from options → critique → first slice → contract → implementation → verification → handoff.
+2. **Small skills, one job each.** A skill that tries to cover everything never fires at the right moment. Split by decision point, not by topic area.
+3. **Progressive disclosure.** The description is the trigger; the body is the payload. Keep descriptions honest about *when*, keep bodies short enough to read in one pass (target under ~160 lines).
+4. **State-check before action.** Skills should tell the agent to verify current state (git status, existing files, running processes) before mutating anything.
+5. **Verification is part of the work.** A change without a check is half a change. Every skill that produces output includes how to verify it.
+6. **Portable by default.** No harness-specific APIs in skill bodies unless the skill is explicitly about that harness. Person- or machine-specific notes go in a clearly marked optional section.
 
 ## Adding a skill
 

@@ -46,6 +46,23 @@ from who verifies (the worker/supervisor split in `herdr-claude-pr-lane`)
 exists because self-verification degrades under exactly the conditions —
 long sessions, sunk cost — where it matters most.
 
+## Idea lifecycle coverage
+
+The full workflow is broader than implementation. A useful chief-of-staff style
+skill set should cover:
+
+1. **Options** — widen the solution space before choosing (`chief-of-staff-brainstorm`).
+2. **Critique** — challenge assumptions, tradeoffs, and failure modes (`critical-thinking-review`).
+3. **First slice** — turn a selected idea into an executable experiment or plan (`idea-to-implementation-plan`).
+4. **Contract** — bound the work before delegation (`goal-contract`).
+5. **Execution** — run an implementation lane when appropriate (`herdr-claude-pr-lane`).
+6. **Verification** — prove the result with real evidence (`agent-verification-contracts`).
+7. **Continuity** — preserve context when work crosses sessions (`agent-handoff`).
+
+Keep each stage separate. A brainstorming skill that also writes implementation
+commands will fire too early; an implementation skill that also critiques strategy
+will fire too late.
+
 ## Portable skills
 
 A skill is a folder with a `SKILL.md`; frontmatter has `name` and
