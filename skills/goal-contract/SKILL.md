@@ -1,5 +1,5 @@
 ---
-name: claude-code-goal-contract
+name: goal-contract
 description: Use when a work request is vague, open-ended, or bigger than one sitting — before any implementation. Converts "improve X" / "add support for Y" into a bounded contract with scope, non-goals, done-when conditions, and stop conditions.
 ---
 

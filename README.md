@@ -9,7 +9,7 @@ This is a pattern library, not a framework. Each skill is a self-contained folde
 ```
 skills/                        # one folder per skill, each with SKILL.md
   herdr-claude-pr-lane/        # run PR-sized Claude Code work through Herdr
-  claude-code-goal-contract/   # turn vague asks into bounded contracts
+  goal-contract/               # turn vague asks into bounded contracts
   agent-verification-contracts/# verification loops per change type
   folder-agent-context/        # project-local CLAUDE.md + AGENTS.md
   agent-handoff/               # handoff artifacts for fresh sessions

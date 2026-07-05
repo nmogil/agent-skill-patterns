@@ -62,7 +62,7 @@ reporting success, and report the actual output, not a summary of confidence.
 
 ## Verifying another agent's work
 
-Same loops, plus:
+For Herdr/Claude PR lanes, pair this with `herdr-claude-pr-lane`. Same loops, plus:
 
 - Re-run the checks yourself; never accept the worker's transcript as evidence.
 - Diff the full change surface (`git diff --stat`) against the stated scope —

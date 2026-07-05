@@ -48,6 +48,8 @@ documenting the project, not the delta.
 - <commands that confirm current state: what passes today, what is expected to fail>
 ```
 
+For lane work, keep the handoff on the branch so the next lane contract can link to it.
+
 ## Writing it well
 
 1. **Write "Next action" first.** It forces you to decide where the work actually

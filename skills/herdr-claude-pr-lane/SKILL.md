@@ -14,7 +14,7 @@ the change.
 - The work fits in one PR: a feature slice, a bugfix, a refactor with a clear boundary.
 - A supervisor (separate agent or human) will review before merge.
 - Not for: exploratory spikes (no PR contract yet — write a goal contract first,
-  see `claude-code-goal-contract`), or multi-PR epics (split them first).
+  see `goal-contract`), or multi-PR epics (split them first).
 
 ## Roles
 
@@ -27,7 +27,7 @@ the change.
 
 1. **Write the contract before opening the lane.** Goal, in-scope files/areas,
    out-of-scope, done-when, and verification commands. Use the
-   `claude-code-goal-contract` template. A lane started without a contract
+   `goal-contract` template. A lane started without a contract
    drifts — this is the single highest-leverage step.
 
 2. **Start the lane** with the contract as the opening prompt. If running from a Herdr-managed pane, prefer a background split and avoid stealing focus:
@@ -40,7 +40,7 @@ the change.
    herdr agent read pr-lane --source recent --lines 200
    ```
 
-   If your team uses a wrapper such as `omni claude`, substitute it for `claude`. Include:
+   If your team uses a wrapper, substitute that command for `claude`. Include:
    - the branch name to create (one lane = one branch),
    - the exact verification commands the supervisor will run,
    - the instruction: "Do not merge. Stop and report when done-when is met or blocked."
@@ -55,7 +55,9 @@ the change.
      file outside scope needs an explanation or a revert,
    - checks the done-when conditions one by one.
 
-5. **Decide:** merge, send back with a specific correction ("test X fails with Y,
+5. **Handle stuck lanes.** If the lane stops producing output or remains non-idle past the timeout, read recent output first, then decide whether it is blocked, still legitimately working, or dead. If dead, stop the lane/process you created, preserve any partial diff, and restart with a tighter contract rather than continuing to poke a stale session.
+
+6. **Decide:** merge, send back with a specific correction ("test X fails with Y,
    fix only that"), or abandon the lane and restart with a tighter contract.
    Two failed correction rounds usually means the contract was wrong, not the worker.
 
@@ -78,7 +80,7 @@ or immediately if blocked on a decision.
 
 ## Verification (supervisor side)
 
-- Run every `Verify with` command yourself; require actual output, not claims.
+- Run every `Verify with` command yourself; require actual output, not claims. Use `agent-verification-contracts` for the evidence standard.
 - `git diff --stat main...<branch>` — every touched file maps to the scope list.
 - Read the diff for the riskiest file, not just the summary.
 - If the worker added a dependency, config file, or migration not in the contract,
